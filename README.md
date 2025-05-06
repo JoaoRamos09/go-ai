@@ -1,4 +1,4 @@
-# Go-AI
+# Go-IA
 
 Uma API em Go que integra serviços de IA com funcionalidades de autenticação e autorização. O projeto utiliza OpenAI para processamento de linguagem natural e Pinecone para armazenamento e busca de vetores.
 
