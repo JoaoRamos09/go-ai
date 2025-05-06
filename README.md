@@ -60,6 +60,8 @@ make run
   - `/database`: Conexões com bancos de dados
   - `/http`: Handlers HTTP e middlewares
   - `/user`: Lógica de usuários e autenticação
+  - `/json`: Código auxiliar para leitura e escrita JSON
+  - `/errs`: Definição de erros personalizados
 - `/ia`: Integrações com IA
 - `/docs`: Documentação adicional
 

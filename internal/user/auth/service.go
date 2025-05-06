@@ -14,8 +14,8 @@ type UseCase interface {
 }
 
 type TokenAuth interface {
-	GenerateToken(userID int) (string, error)
-	ValidateToken(token string) (*jwt.Token, error)
+	Generate(userID int) (string, error)
+	Validate(token string) (*jwt.Token, error)
 }
 
 type Service struct {

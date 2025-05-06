@@ -71,7 +71,7 @@ func (s *Service) Authenticate(next http.Handler) http.Handler {
 
 		token = parts[1]
 
-		jwtToken, err := s.authService.ValidateToken(token)
+		jwtToken, err := s.authService.Validate(token)
 		if err != nil {
 			log.Printf("[MIDDLEWARE] Invalid token: %v", err)
 			json.WriteError(w, http.StatusUnauthorized, errs.ErrInvalidToken.Error())

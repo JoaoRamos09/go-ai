@@ -18,7 +18,7 @@ type invokeResponse struct {
 	Response string `json:"response"`
 }
 
-type recordRequest struct {
+type documentRequest struct {
 	Text string `json:"text" validate:"required"`
 	Category string `json:"category" validate:"required"`
 }
@@ -61,7 +61,7 @@ func invokeAI(ai ia.UseCase) http.HandlerFunc {
 
 func insertDocuments(ai ia.UseCase) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		var requests []recordRequest
+		var requests []documentRequest
 		err := json.Read(w, r, &requests)
 		if err != nil {
 			json.WriteError(w, http.StatusBadRequest, errs.ErrSintaxError.Error())

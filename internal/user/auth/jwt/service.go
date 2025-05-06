@@ -23,7 +23,7 @@ func NewService(secretKey string, tokenExpiry time.Duration, tokenIssuer string,
 	}
 }
 
-func (s *Service) GenerateToken(userID int) (string, error) {
+func (s *Service) Generate(userID int) (string, error) {
 	claims := jwt.MapClaims{
 		"sub": userID,
 		"aud": s.tokenAudience,
@@ -41,7 +41,7 @@ func (s *Service) GenerateToken(userID int) (string, error) {
 	return token, nil
 }
 
-func (s *Service) ValidateToken(token string) (*jwt.Token, error) {
+func (s *Service) Validate(token string) (*jwt.Token, error) {
 	return jwt.Parse(token, func(token *jwt.Token) (any, error) {
 		if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
 			return nil, fmt.Errorf("unexpected signing method: %v", token.Header["alg"])

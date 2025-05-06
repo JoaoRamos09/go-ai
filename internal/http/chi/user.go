@@ -117,7 +117,7 @@ func loginUser(userService user.UseCase, authService auth.UseCase) http.HandlerF
 			return
 		}
 		
-		token, err := authService.GenerateToken(u.ID)
+		token, err := authService.Generate(u.ID)
 		if err != nil {
 			json.WriteError(w, http.StatusInternalServerError, "")
 			return
